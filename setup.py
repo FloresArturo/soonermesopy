@@ -7,7 +7,6 @@ setup(
     author="Arturo J. Flores",
     author_email="artuflo@okstate.edu",
     packages=find_packages(where="soonermesopy"),
-    package_dir={"": "src"},
     include_package_data=True,
     install_requires=[
         "pandas",
