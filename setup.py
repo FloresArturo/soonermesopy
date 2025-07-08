@@ -7,6 +7,7 @@ setup(
     author="Arturo J. Flores",
     author_email="artuflo@okstate.edu",
     include_package_data=True,
+    packages=find_packages(where="."),
     install_requires=[
         "pandas",
         "numpy",
