@@ -6,15 +6,12 @@ setup(
     description="Tools to download data from the Oklahoma Mesonet",
     author="Arturo J. Flores",
     author_email="artuflo@okstate.edu",
-    include_package_data=True,
-    package_data={'':['files/*']},
-    packages=find_packages(where="."),
+    packages=find_packages(),
     install_requires=[
         "pandas",
         "numpy",
         "requests",
-        "tqdm",
-        "openpyxl"
+        "tqdm"
     ],
     python_requires=">=3.8",
 )
