@@ -180,7 +180,7 @@ def _retrieve_hydraulic_params(station_id: Optional[str]=None, depth: Optional[i
     """
     # Load MesoSoil database
     try:
-        mesoinfo = pd.read_csv(mesosoil_data)
+        mesoinfo = pd.DataFrame(mesosoil_data)
         mesoinfo = mesoinfo[['Site', 'Depth', 'Sand', 'Silt', 'Clay', 'BulkD',
                              'Th33', 'Th1500', 'Theta_r', 'Theta_s', 'Alpha', 'N', 'Ks']]
     except Exception as e:
