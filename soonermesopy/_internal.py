@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 from typing import Optional
 import numpy as np
 
+from ._mesosoil_v2_1 import data as mesosoil_data
 
 # Functions
 
@@ -179,7 +180,7 @@ def _retrieve_hydraulic_params(station_id: Optional[str]=None, depth: Optional[i
     """
     # Load MesoSoil database
     try:
-        mesoinfo = pd.read_excel('files/MesoSoilv2_1.xlsx', na_values="-9.9")
+        mesoinfo = pd.read_csv(mesosoil_data)
         mesoinfo = mesoinfo[['Site', 'Depth', 'Sand', 'Silt', 'Clay', 'BulkD',
                              'Th33', 'Th1500', 'Theta_r', 'Theta_s', 'Alpha', 'N', 'Ks']]
     except Exception as e:
