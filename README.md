@@ -1,7 +1,5 @@
 # soonermesopy
-Tools to download data from the Oklahoma Mesonet.
-
-The Pandas library (https://pandas.pydata.org/) is used to download, store, and manipulate the data.
+Tools to download data from the Oklahoma Mesonet. The downloaded data are in the original units reported by Mesonet. The Pandas library (https://pandas.pydata.org/) is used to download, store, and manipulate the data. Visit the *Tutorial soonermesopy.ipynb* for some examples of how to utilize this library.
 
 Before downloading any data, please visit https://www.mesonet.org/about/terms-of-use and make sure you comply with the terms of use.
 
