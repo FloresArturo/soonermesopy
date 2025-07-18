@@ -196,7 +196,7 @@ def retrieve_daily_summary(station_id: Optional[str]=None, date: Optional[dateti
             soil_moist = _retrieve_soil_moisture_data(date)
             soil_temp = _retrieve_soil_temperature_data(date)
             weather = _retrieve_weather_data(date)
-            data = soil_moist.merge(soil_temp, on='Site').merge(weather, on='Site')
+            data = weather.merge(soil_moist, on='Site').merge(soil_temp, on='Site')
         except Exception as e:
             raise ImportError(f'Error retrieving data!\nDetails: {e}')
         
@@ -204,7 +204,7 @@ def retrieve_daily_summary(station_id: Optional[str]=None, date: Optional[dateti
         raise ValueError('Invalid variables selected!')
     
     # --- Filter for station if given ---
-    data['Date'] = date.date()
+    data.insert(1, 'Date', date.date())
     if station_id is not None and station_id.upper() in data.Site.values:
         return data[data['Site']==station_id.upper()]
     else:
