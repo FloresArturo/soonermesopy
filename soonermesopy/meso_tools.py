@@ -98,9 +98,9 @@ def retrieve_geoinfo(station_id: Optional[str]=None, default: Optional[bool]=Tru
     
     if station_id:
         station_id = station_id.upper()
-        if station_id not in geoinfo['stid'].values:
+        if station_id not in geoinfo['Site'].values:
             raise ValueError('Station not valid!')
-        return geoinfo[geoinfo['stid'] == station_id]
+        return geoinfo[geoinfo['Site'] == station_id]
     
     return geoinfo
 
