@@ -83,11 +83,17 @@ def retrieve_geoinfo(station_id: Optional[str]=None, default: Optional[bool]=Tru
     """
     try:
         geoinfo = pd.read_csv("https://api.mesonet.org/index.php/export/station_location_soil_information")
+        geoinfo = geoinfo.rename(columns={'stnm':'Number', 'stid':'Site', 'name':'Name',
+                                          'city':'City', 'cnty':'County',
+                                          'nlat':'nLat', 'elon':'eLon', 'elev':'Elev',
+                                          'cdiv':'Division',
+                                          'rang':'Range', 'cdir':'Direction', 'clas':'Class',
+                                          'datc':'Commission', 'datd':'Decommission'})
     except Exception as e:
         raise ImportError(f'Error loading geoinfo! Check connection.\nDetails: {e}')
     
     if default:
-        keep = ['stnm', 'stid', 'name', 'city', 'cnty', 'nlat', 'elon', 'elev', 'TEXT5', 'TEXT10', 'TEXT25', 'TEXT60', 'TEXT75']
+        keep = ['Number', 'Site', 'Name', 'City', 'County', 'nLat', 'eLon', 'Elev', 'TEXT5', 'TEXT10', 'TEXT25', 'TEXT60', 'TEXT75', 'Commission', 'Decommission']
         geoinfo = geoinfo[keep]
     
     if station_id:
